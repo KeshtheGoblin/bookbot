@@ -7,6 +7,7 @@ def get_num_words(path_to_file):
     book_text = get_book_text(path_to_file)
     return len(book_text.split())
 
-if __name__ == "__main__":
-    num_words = get_num_words("books/frankenstein.txt")
-    print(f"Found {num_words} total words.")
+def get_char_count(path_to_file):
+    book_text = get_book_text(path_to_file)
+    char_count = len([c for c in book_text if c != " " and c != "\n"])
+    return char_count
