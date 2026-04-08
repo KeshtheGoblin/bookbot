@@ -1,8 +1,18 @@
-from stats import get_char_count, get_num_words
+from stats import get_num_words, get_chars_dict
 
 
-if __name__ == "__main__":
-    num_words = get_num_words("books/frankenstein.txt")
-    print(f"Found {num_words} total words.")
-    char_count = get_char_count("books/frankenstein.txt")
-    print(f"{char_count} individual characters (not counting spaces or newlines).")
+def main():
+    book_path = "books/frankenstein.txt"
+    text = get_book_text(book_path)
+    num_words = get_num_words(text)
+    chars_dict = get_chars_dict(text)
+    print(f"Found {num_words} total words")
+    print(chars_dict)
+
+
+def get_book_text(path):
+    with open(path) as f:
+        return f.read()
+
+
+main()
